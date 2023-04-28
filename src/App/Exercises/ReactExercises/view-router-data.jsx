@@ -4,8 +4,11 @@ import { SubRouteExampleMetaData } from './SubRouteExample/router-data';
 
 import { welcomeViewkRouterMetaData } from './WelcomeView/router-data';
 
+import { SubRouteExercise1 } from './Exercise1/router-data';
+
 export const blockRouterMetaData = [
   SubRouteExampleMetaData,
   welcomeViewkRouterMetaData,
+  SubRouteExercise1,
 ];
 export const blockRouterData = getParsedRouterDataList(blockRouterMetaData);
