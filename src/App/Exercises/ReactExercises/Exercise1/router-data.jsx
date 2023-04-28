@@ -4,7 +4,7 @@ export const SubRouteExercise1 = {
   path: 'exercise1',
   date: '28-04-2023',
   linkLabel: 'Exercise One',
-  blockNo: 2,
+  blockNo: 3,
   element: <Exercise1 />,
   tags: ['components', 'import', 'export'],
 };
