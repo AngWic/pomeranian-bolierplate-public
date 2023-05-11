@@ -1,3 +1,12 @@
-.font-test-family {
-  font-family: Chilanka;
+.table-punk {
+  border-collapse: separate;
+  border: 2px solid black;
+}
+
+.table-punk th {
+  border: 2px solid rgb(0, 0, 0);
+}
+
+.total-albums {
+  text-align: right;
 }
