@@ -68,27 +68,35 @@ export const ArrayRendering = () => {
   return (
     <div>
       <table className="table-punk">
-        <tr>
-          <th>Band</th>
-          <th>Year formed</th>
-          <th>No. of albums</th>
-          <th>Most famous songs</th>
-        </tr>
-
-        {bands.map((punk) => (
+        <thead>
           <tr>
-            <td>{punk.band}</td>
-            <td>{punk.yearFormed}</td>
-            <td>{punk.albums}</td>
-            <td>{punk.mostFamousSong}</td>
+            <th>Band</th>
+            <th>Year formed</th>
+            <th>No. of albums</th>
+            <th>Most famous songs</th>
           </tr>
-        ))}
-        <tr>
-          <td colspan="2" className="total-albums">
-            Total albums
-          </td>
-          <td colspan="2">77</td>
-        </tr>
+        </thead>
+
+        <tbody>
+          {bands.map((punk) => (
+            <tr>
+              <td>{punk.band}</td>
+              <td>{punk.yearFormed}</td>
+              <td>{punk.albums}</td>
+              <td>{punk.mostFamousSong}</td>
+            </tr>
+          ))}
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="2" className="total-albums">
+              Total albums
+            </td>
+            <td colspan="2" className="total-albums-sum">
+              47
+            </td>
+          </tr>
+        </tfoot>
       </table>
     </div>
   );
