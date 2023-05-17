@@ -1,5 +1,11 @@
 import './styles.css';
 
+console.log(6 % 2);
+
+export function BooleanExercises() {
+  return <div>Operatory logiczne</div>;
+}
+
 // export function BooleanExercises() {
 //   const value1 = 3;
 //   // const value2 = true;
