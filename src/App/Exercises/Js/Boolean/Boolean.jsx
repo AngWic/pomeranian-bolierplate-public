@@ -2,13 +2,13 @@ import './styles.css';
 import { useState } from 'react';
 
 export function BooleanExercises() {
-  const [number, setNumber] = useState(0);
+  const [number, setNumber] = useState();
 
   const handleChange = (event) => {
     setNumber(event.target.value);
   };
 
-  const circleArea = (number, pi) => {
+  const circleArea = (number) => {
     if (number < 1) {
       return 'Liczba musi być większa od 0';
     } else if (number > 10) {
@@ -21,7 +21,7 @@ export function BooleanExercises() {
     }
   };
 
-  console.log(circleArea);
+  console.log(circleArea(number));
 
   return (
     <div>
