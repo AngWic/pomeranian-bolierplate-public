@@ -15,7 +15,7 @@ export const HitTheMoleSelector = (props) => {
   ];
 
   return (
-    <div>
+    <>
       {molesAmountOptions.map(({ value, label }) => {
         return (
           <HitTheMoleButton
@@ -26,6 +26,6 @@ export const HitTheMoleSelector = (props) => {
           </HitTheMoleButton>
         );
       })}
-    </div>
+    </>
   );
 };

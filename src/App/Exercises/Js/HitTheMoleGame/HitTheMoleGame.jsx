@@ -102,16 +102,16 @@ export function HitTheMoleGame() {
       <div className="hit-the-mole-container">
         <div className="hit-the-mole-label">Czas gry</div>
 
-        {/* <HitTheMoleSelector
+        <HitTheMoleSelector
           className="hit-the-mole-container"
           optionsForMinutes={[
             { value: 1, label: '1 minuta' },
             { value: 2, label: '2 minuty' },
             { value: 3, label: '3 minuty' },
           ]}
-        /> */}
+        />
 
-        {molesTimeOptions.map(({ value, label }) => {
+        {/* {molesTimeOptions.map(({ value, label }) => {
           // const { value, label } = object;
           return (
             <HitTheMoleButton
@@ -121,12 +121,12 @@ export function HitTheMoleGame() {
               {label}
             </HitTheMoleButton>
           );
-        })}
+        })} */}
       </div>
       <div className="hit-the-mole-container">
         <div className="hit-the-mole-label">Liczba kretów</div>
 
-        {molesAmountOptions.map(({ value, label }) => {
+        {/* {molesAmountOptions.map(({ value, label }) => {
           return (
             <HitTheMoleButton
               isActive={moles === value}
@@ -135,8 +135,8 @@ export function HitTheMoleGame() {
               {label}
             </HitTheMoleButton>
           );
-        })}
-        {/* 
+        })} */}
+
         <HitTheMoleSelector
           className="hit-the-mole-container"
           optionsForMoles={[
@@ -144,7 +144,7 @@ export function HitTheMoleGame() {
             { value: 2, label: '2 krety' },
             { value: 3, label: '3 krety' },
           ]}
-        /> */}
+        />
 
         {/* 
         <HitTheMoleButton isActive={moles === 1} onClick={() => setMoles(1)}>
