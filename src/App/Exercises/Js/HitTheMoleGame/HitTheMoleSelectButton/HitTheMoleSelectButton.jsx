@@ -27,14 +27,16 @@ export const HitTheMoleSelectButton = ({ options: givenOptions, onChange }) => {
 
   return (
     <>
-      {newOptions.map({ label, value, isActive })}
-      <HitTheMoleButton
-        key={value}
-        onClick={() => handleClick(value)}
-        isActive={isActive}
-      >
-        {label}
-      </HitTheMoleButton>
+      {newOptions.map(({ label, value, isActive }) => (
+        <HitTheMoleButton
+          key={value}
+          onClick={() => handleClick(value)}
+          isActive={isActive}
+        >
+          {label}
+        </HitTheMoleButton>
+      ))}
+      ;
     </>
   );
 };
