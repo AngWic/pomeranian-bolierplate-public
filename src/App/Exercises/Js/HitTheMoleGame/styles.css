@@ -1,1 +1,8 @@
+.hit-the-mole-container {
+  display: flex;
+  align-items: center;
+}
 
+.hit-the-mole-container .hit-the-mole-label {
+  width: 130px;
+}
