@@ -104,10 +104,10 @@ export function HitTheMoleGame() {
 
         <HitTheMoleSelector
           className="hit-the-mole-container"
-          optionsForMinutes={[
-            { value: 1, label: '1 minuta' },
-            { value: 2, label: '2 minuty' },
-            { value: 3, label: '3 minuty' },
+          optionsForMoles={[
+            { value: 1, label: '1 minuta', isActive: true },
+            { value: 2, label: '2 minuty', isActive: false },
+            { value: 3, label: '3 minuty', isActive: false },
           ]}
         />
 
@@ -140,9 +140,9 @@ export function HitTheMoleGame() {
         <HitTheMoleSelector
           className="hit-the-mole-container"
           optionsForMoles={[
-            { value: 1, label: '1 kret' },
-            { value: 2, label: '2 krety' },
-            { value: 3, label: '3 krety' },
+            { value: 1, label: '1 kret', isActive: false },
+            { value: 2, label: '2 krety', isActive: true },
+            { value: 3, label: '3 krety', isActive: false },
           ]}
         />
 
