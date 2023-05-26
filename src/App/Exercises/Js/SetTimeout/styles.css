@@ -1,5 +1,21 @@
-.star-wars-button {
+.star-wars-dark-par {
+  color: rgb(201, 6, 6);
+  background: radial-gradient(rgb(241, 170, 170), rgb(236, 99, 99));
+  border: 1px solid rgb(241, 94, 94);
+  border-radius: 10px;
+  text-align: center;
+  margin: 100px;
+  box-shadow: 2px 2px 12px 22px rgb(238, 58, 58);
+}
+
+.star-wars-light-button {
   font-size: xx-large;
   color: green;
-  background-color: aqua;
+  background: radial-gradient(rgb(177, 240, 180), rgb(95, 233, 125));
+  border: 1px solid rgb(26, 214, 67);
+  border-radius: 10px;
+  height: 42px;
+  width: 870px;
+  margin-left: 100px;
+  box-shadow: 2px 2px 12px 22px rgb(26, 214, 67);
 }

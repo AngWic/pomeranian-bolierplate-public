@@ -5,31 +5,27 @@ import { useState } from 'react';
 export const SetTimeout = () => {
   const staticState = {
     fontSize: '30px',
-    transition: 'all 5s',
+    transition: 'all 2s',
     rotate: '0deg',
-    color: 'red',
-    backgroundColor: 'black',
-    textAlign: 'center',
   };
   const [rotate, setRotate] = useState(staticState);
   const onClickHandle = () => {
     setRotate((prev) => ({
       ...prev,
-      fontSize: '60px',
+      fontSize: '50px',
       rotate: '25deg',
-      color: 'green',
-      backgroundColor: 'aqua',
-      textAlign: 'center',
     }));
     setTimeout(() => {
       setRotate(staticState);
-    }, 5 * 1000);
+    }, 2 * 1000);
   };
 
   return (
     <div>
-      <p style={rotate}>come to the dark side</p>
-      <button className="star-wars-button" onClick={onClickHandle}>
+      <p className="star-wars-dark-par" style={rotate}>
+        come to the dark side
+      </p>
+      <button className="star-wars-light-button" onClick={onClickHandle}>
         never
       </button>
     </div>
