@@ -1,26 +1,38 @@
 import { useState } from 'react';
 import { HitTheMoleButton } from '../HitTheMoleButton/HitTheMoleButton';
 
-export const HitTheMoleSelector = (props) => {
-  const { optionsForMoles } = props;
+//MOŻNA UŻYWAĆ JAKO UNIWERSALNY KOD:
 
-  console.log(optionsForMoles);
+export const HitTheMoleSelector = ({ optionsForMoles }) => {
+  const [modifiedOptionsForMoles, setModifiedOptionsForMoles] =
+    useState(optionsForMoles);
 
-  const [moles, setMoles] = useState(1);
+  // const findActiveButton = modifiedOptionsForMoles.find(
+  //   (objMol) => objMol.isActive
+  // );
 
-  const molesAmountOptions = [
-    { value: 1, label: '1 kret' },
-    { value: 2, label: '2 krety' },
-    { value: 3, label: '3 krety' },
-  ];
+  // const [selectedValue, setSelectedValue] = useState(findObject.value);
+
+  const hanldeClickSelected = (clickedSelectedButtonValue) => {
+    setModifiedOptionsForMoles(
+      modifiedOptionsForMoles.map((optionForMole) => {
+        return {
+          ...optionForMole, // <-spread operator == można użyć żeby nadpisać jakąś wartość w obiekcie
+          isActive: clickedSelectedButtonValue === optionForMole.value,
+        };
+      })
+    );
+  };
 
   return (
     <>
-      {molesAmountOptions.map(({ value, label }) => {
+      {modifiedOptionsForMoles.map((objMol) => {
+        const { value, label, isActive } = objMol;
         return (
           <HitTheMoleButton
-            isActive={moles === value}
-            onClick={() => setMoles(value)}
+            isActive={isActive}
+            onClick={() => hanldeClickSelected(value)}
+            key={value}
           >
             {label}
           </HitTheMoleButton>

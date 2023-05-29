@@ -1,26 +1,19 @@
 import './styles.css';
 import React, { useState } from 'react';
-import { HitTheMoleMenu } from './HitTheMoleMenu/HitTheMoleMenu';
-import { HitTheMoleButton } from './HitTheMoleButton/HitTheMoleButton';
-import { HitTheMoleSelectButton } from './HitTheMoleSelectButton/HitTheMoleSelectButton';
-import { HitTheMoleSelector } from './HitTheMoleSelector/HitTheMoleSelector';
+
+import { HitTheMolePlayground } from './HitTheMolePlayground/HitTheMolePlayground';
+import { HitTheMoleMenuView } from './HitTheMoleMenuView/HitTheMoleMenuView';
+import { HitTheMoleGameView } from './HitTheMoleGameView/HitTheMoleGameView';
 
 export function HitTheMoleGame() {
-  const [time, setTime] = useState(3);
-  const [moles, setMoles] = useState(1);
+  // const [time, setTime] = useState(3); // już niepotrzebne
+  // const [moles, setMoles] = useState(1); // już niepotrzebne
+  const [isGameStarted, setGameStarted] = useState(false);
+  const [gameScore, setGameScore] = useState(0);
+
+  console.log(isGameStarted);
 
   //ZAMIAST PONIŻSZEGO const molesLabelSuffix:
-  const molesTimeOptions = [
-    { value: 1, label: '1 minuta' },
-    { value: 2, label: '2 minuty' },
-    { value: 3, label: '3 minuty' },
-  ];
-
-  const molesAmountOptions = [
-    { value: 1, label: '1 kret' },
-    { value: 2, label: '2 krety' },
-    { value: 3, label: '3 krety' },
-  ];
 
   // function molesTimeInstruction(object) {
   //   // const molesLabelSuffix = object.value === 1 ? 'minuta' : 'minuty';
@@ -46,9 +39,7 @@ export function HitTheMoleGame() {
   // }
 
   //DEKLARACJA DLA setTime:
-  function handleClick1() {
-    setTime(1);
-  }
+
   // function handleClick2() {
   //   setTime(2);
   // }
@@ -99,69 +90,24 @@ export function HitTheMoleGame() {
         którym się pojawił.
       </p>
 
-      <div className="hit-the-mole-container">
-        <div className="hit-the-mole-label">Czas gry</div>
-
-        <HitTheMoleSelector
-          className="hit-the-mole-container"
-          optionsForMinutes={[
-            { value: 1, label: '1 minuta' },
-            { value: 2, label: '2 minuty' },
-            { value: 3, label: '3 minuty' },
-          ]}
+      {isGameStarted ? (
+        <HitTheMoleGameView
+          setGameStarted={setGameStarted}
+          gameScore={gameScore}
+          setGameScore={setGameScore}
         />
+      ) : (
+        <HitTheMoleMenuView setGameStarted={setGameStarted} />
+      )}
 
-        {/* {molesTimeOptions.map(({ value, label }) => {
-          // const { value, label } = object;
-          return (
-            <HitTheMoleButton
-              isActive={time === value}
-              onClick={() => setTime(value)}
-            >
-              {label}
-            </HitTheMoleButton>
-          );
-        })} */}
-      </div>
-      <div className="hit-the-mole-container">
-        <div className="hit-the-mole-label">Liczba kretów</div>
-
-        {/* {molesAmountOptions.map(({ value, label }) => {
-          return (
-            <HitTheMoleButton
-              isActive={moles === value}
-              onClick={() => setMoles(value)}
-            >
-              {label}
-            </HitTheMoleButton>
-          );
-        })} */}
-
-        <HitTheMoleSelector
-          className="hit-the-mole-container"
-          optionsForMoles={[
-            { value: 1, label: '1 kret' },
-            { value: 2, label: '2 krety' },
-            { value: 3, label: '3 krety' },
-          ]}
-        />
-
-        {/* 
-        <HitTheMoleButton isActive={moles === 1} onClick={() => setMoles(1)}>
-          1 kret
-        </HitTheMoleButton>
-        <HitTheMoleButton isActive={moles === 2} onClick={() => setMoles(2)}>
-          2 kret
-        </HitTheMoleButton>
-        <HitTheMoleButton isActive={moles === 3} onClick={() => setMoles(3)}>
-          3 krety
-        </HitTheMoleButton> */}
-      </div>
-
-      <div className="hit-the-mole-container">
-        <div className="hit-the-mole-label">Przyciski sterujące</div>
-        <HitTheMoleButton>Start</HitTheMoleButton>
-      </div>
+      <>
+        {isGameStarted && (
+          <HitTheMolePlayground
+            gameScore={gameScore}
+            setGameScore={setGameScore}
+          />
+        )}
+      </>
     </div>
   );
 }
