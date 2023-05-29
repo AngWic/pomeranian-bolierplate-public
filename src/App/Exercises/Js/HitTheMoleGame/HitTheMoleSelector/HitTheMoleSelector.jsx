@@ -32,6 +32,7 @@ export const HitTheMoleSelector = ({ optionsForMoles }) => {
           <HitTheMoleButton
             isActive={isActive}
             onClick={() => hanldeClickSelected(value)}
+            key={value}
           >
             {label}
           </HitTheMoleButton>
