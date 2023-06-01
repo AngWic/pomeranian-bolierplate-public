@@ -3,156 +3,98 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { useId } from 'react';
+import db from './db.json';
 
-const Cell = ({ value, clicked }) => {
-  const uniqueID = useId();
-  return (
-    <div
-      className={`Y ${clicked ? 'clicked-for-memo' : ''}`}
-      onClick={() => handleClick(uniqueID)}
-    >
-      {uniqueID}
-    </div>
-  );
+import { Difficulty } from './MemoGameComponents/Difficulty/Difficulty';
+import { MemoBoard } from './MemoGameComponents/MemoBoard/MemoBoard';
+import { Timer } from './MemoGameComponents/Timer/Timer';
+
+function shuffleArray(s) {
+  for (let i = s.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [s[i], s[j]] = [s[j], s[i]];
+  }
+  return s;
+}
+
+const rand = (min, max) => {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 
-const MemoBoard = ({ board }) => {
-  return board.map((X, xindex) => (
-    <div key={`X-${xindex}`} className="X">
-      {' '}
-      {X.map((Y, yindex) => (
-        <Cell
-          key={`Y-${yindex}`}
-          value={Y.value}
-          clicked={Y.clicked}
-          handleClick={handleClick}
-        />
-      ))}{' '}
-    </div>
-  ));
-};
+const getRandomNames = (difficulty) => {
+  const names = new Array((difficulty * difficulty) / 2).fill('');
 
-const Timer = () => {
-  const MIN_TIMER_VALUE = 0;
-  const [chosenTime, setChosenTime] = useState(30 * 1000);
-  const [timer, setTimer] = useState(0);
-  const [gameStarted, setGameStarted] = useState(false);
+  names.forEach((_, index) => {
+    let randomIndex = rand(0, db.names.length);
+    names[index] = db.names[randomIndex];
+  });
 
-  useEffect(() => {
-    setTimer(chosenTime);
-  }, [chosenTime]);
-
-  const changeTimer = (chosenTime) => {
-    setChosenTime(chosenTime * 1000);
-  };
-
-  const startGame = () => {
-    setGameStarted(true);
-  };
-
-  useEffect(() => {
-    if (gameStarted) {
-      let timerInterval = setInterval(() => {
-        setTimer((currentTimer) => {
-          currentTimer > MIN_TIMER_VALUE ? currentTimer - 1000 : currentTimer;
-        });
-      }, 1000);
-
-      return () => clearInterval(timerInterval);
-    }
-  }, [timer, gameStarted]);
-
-  return (
-    <>
-      You've chosen to play for {chosenTime / 1000} seconds and you're left
-      with: {timer / 1000}
-      <div className="buttons-wrapper-for-memo">
-        <button
-          className="button-click-for-memo"
-          onClick={() => changeTimer(30)}
-        >
-          30
-        </button>
-        <button
-          className="button-click-for-memo"
-          onClick={() => changeTimer(60)}
-        >
-          60
-        </button>
-        <button
-          className="button-click-for-memo"
-          onClick={() => changeTimer(90)}
-        >
-          90
-        </button>
-      </div>
-      <button className="button-start-for-memo" onClick={() => startGame()}>
-        Start
-      </button>
-    </>
-  );
-};
-
-const Difficulty = ({ changeBoardGrid }) => {
-  const [diff, setDiff] = useState(4);
-  const changeDif = (newDif) => {
-    setDiff(newDif);
-  };
-
-  useEffect(() => {
-    changeBoardGrid(diff);
-  }, [diff]);
-
-  return (
-    <>
-      <p>
-        Current difficulty {diff}x{diff} grid
-      </p>
-      <p>Select on of the difficulties:</p>
-      <div className="buttons-wrapper-for-memo">
-        <button className="button-click-for-memo" onClick={() => changeDif(2)}>
-          2
-        </button>
-        <button className="button-click-for-memo" onClick={() => changeDif(4)}>
-          4
-        </button>
-        <button className="button-click-for-memo" onClick={() => changeDif(6)}>
-          6
-        </button>
-      </div>
-    </>
-  );
+  return names;
 };
 
 export const Exercise = () => {
-  const [board, setBoard] = useState(
-    new Array(4).fill(
-      new Array(4).fill({ value: '', clicked: false, isTurned: false, id: '' })
-    )
+  // TODO: When all tiles turned and timer > 0 alert("Win!")
+  // TODO: Fill with names
+  // const [namesToFillTheBoard, setNamesToFillTheBoard] = useState(
+  //   new Array(2).fill('')
+  // );
+
+  const [difficulty, setDifficulty] = useState(2);
+
+  const namesToFillTheBoard = getRandomNames(difficulty);
+  console.log('namesToFillTheBoard', namesToFillTheBoard);
+
+  // const newArr = new Array(difficulty).fill({
+  //   value: '',
+  //   clicked: false,
+  //   isTurned: false,
+  //   id: '',
+  // });
+  const [board, setBoard] = useState(getInitialBoard(difficulty)
+    // newArray
   );
+  console.log('board', board);
 
-  const handleClick = (id) => {
-    console.log(id);
+  useEffect(() => {
+    if (difficulty * difficulty !== board.length) {
+      setBoard(getInitialBoard(difficulty));
+  },}, [difficulty]);
 
-    // TODO: Get element and change it's clicked value
-  };
+  useEffect(() => {
+    const newBoard = board.flat();
+    const namesAmount = namesToFillTheBoard.length;
 
-  const changeBoardGrid = (gridSize) => {
-    setBoard(
-      new Array(gridSize).fill(
-        new Array(gridSize).fill({ value: '', clicked: false })
-      )
-    );
+    namesToFillTheBoard.forEach((name, index) => {
+      newBoard[index] = { ...newBoard[index], value: name };
+      newBoard[index + namesAmount] = {
+        ...newBoard[index + namesAmount],
+        value: name,
+      };
+    });
+
+    setBoard(newBoard);
+  }, [difficulty]);
+
+  const organiseArray = () => {
+    const shuffledArray = shuffleArray(board);
+    const newArr = new Array(difficulty).fill('');
+    return newArr.map((_, index) => {
+      const value = index * difficulty;
+      return shuffledArray.slice(value, value + difficulty);
+    });
   };
 
   return (
     <>
       <Timer />
-      <Difficulty changeBoardGrid={changeBoardGrid} />
-
-      <div className="wrapper-for-memo">
-        {' '}
-        <MemoBoard board={board} />{' '}
+      <Difficulty difficulty={difficulty} setDifficulty={setDifficulty} />
+      <div
+        className="wrapper-for-memo"
+        style={{ gridTemplateColumns: `repeat(${board.length}, 1fr)` }}
+      >
+        <MemoBoard board={organiseArray()} />
       </div>
     </>
   );
