@@ -5,12 +5,16 @@ import { Board } from './Board/Board';
 import { GameView } from './GameView/GameView';
 
 export function MemoGame() {
-  const boardSize = 16;
+  const [boardSize, setBoardSize] = useState(20);
   const [isGameStarted, setGameStarted] = useState(false);
   const [stepAmount, setStepAmount] = useState(0);
   const [time, setTime] = useState(0);
-
   const [timeInterval, setTimeInterval] = useState();
+
+  const [stopGame, setStopGame] = useState(false);
+  const [myTime, setMyTime] = useState(0);
+
+  console.log(boardSize);
 
   let gameInterval;
 
@@ -31,21 +35,38 @@ export function MemoGame() {
 
   return (
     <div className="memo-game">
-      {!isGameStarted && <MenuView setGameStarted={setGameStarted} />}
+      {stopGame && isGameStarted ? (
+        <h1>
+          Congratulations! You MEMOrised {boardSize / 2} pairs in time:{myTime}
+        </h1>
+      ) : (
+        ''
+      )}
+      {!isGameStarted && (
+        <MenuView
+          setGameStarted={setGameStarted}
+          setBoardSize={setBoardSize}
+          boardSize={boardSize}
+        />
+      )}
       {isGameStarted && (
         <GameView
           setGameStarted={setGameStarted}
+          setStepAmount={setStepAmount}
           stepAmount={stepAmount}
           time={time}
+          myTime={myTime}
         />
       )}
 
-      {/* <MenuView isGameStarted={isGameStarted} setGameStarted={setGameStarted} /> */}
       {isGameStarted && (
         <Board
           boardSize={boardSize}
           stepAmount={stepAmount}
           setStepAmount={setStepAmount}
+          setStopGame={setStopGame}
+          time={time}
+          setMyTime={setMyTime}
         />
       )}
     </div>

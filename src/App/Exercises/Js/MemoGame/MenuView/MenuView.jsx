@@ -2,19 +2,42 @@ import { HitTheMoleButton } from '../../HitTheMoleGame/HitTheMoleButton/HitTheMo
 import { HitTheMoleMenu } from '../../HitTheMoleGame/HitTheMoleMenu/HitTheMoleMenu';
 import { HitTheMoleSelector } from '../../HitTheMoleGame/HitTheMoleSelector/HitTheMoleSelector';
 
-export const MenuView = ({ setGameStarted }) => {
+export const MenuView = ({ setGameStarted, boardSize, setBoardSize }) => {
   return (
     <>
       <HitTheMoleMenu label="Rozmiar planszy">
         <HitTheMoleSelector
-          optionsForMoles={[
-            { label: '8 elementów', value: 8, isActive: true },
-            { label: '16 elementów', value: 16, isActive: false },
+          options={[
+            {
+              label: '4 elements',
+              value: 4,
+              isActive: false,
+            },
+            {
+              label: '8 elements',
+              value: 8,
+              isActive: false,
+            },
+            {
+              label: '16 elements',
+              value: 16,
+              isActive: false,
+            },
+            {
+              label: '20 elements',
+              value: 20,
+              isActive: false,
+            },
           ]}
+          // setBoardSize={setBoardSize} // to samo można zapisać:
+          setValue={setBoardSize}
         />
       </HitTheMoleMenu>
       <HitTheMoleMenu label="Przyciski sterujące">
-        <HitTheMoleButton onClick={() => setGameStarted(true)}>
+        <HitTheMoleButton
+          onClick={() => setGameStarted(true)}
+          isDisabled={boardSize === 0}
+        >
           Start
         </HitTheMoleButton>
       </HitTheMoleMenu>

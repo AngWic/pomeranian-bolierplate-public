@@ -1,20 +1,23 @@
 import { useState } from 'react';
 import { HitTheMoleButton } from '../HitTheMoleButton/HitTheMoleButton';
 
-export const HitTheMoleSelectButton = ({ options: givenOptions, onChange }) => {
-  const initialOptions = givenOptions.map((option) => ({
-    ...option,
-    isActive: false,
-  }));
+export const HitTheMoleSelectButton = (props) => {
+  const { options, setValue } = props;
+  // const initialOptions = givenOptions.map((option) => ({
+  //   ...option,
+  //   isActive: false,
+  // }));
 
   // export const HitTheMoleSelectButton = (props) => {
   //   const { options } = props;
 
   //   console.log(options);
 
-  const [newOptions, setNewOptions] = useState(initialOptions);
+  const [newOptions, setNewOptions] = useState(options);
 
-  const handleClick = (value) => {
+  function handleClick(value) {
+    setValue(value);
+
     setNewOptions(
       newOptions.map((option) => {
         return {
@@ -23,19 +26,20 @@ export const HitTheMoleSelectButton = ({ options: givenOptions, onChange }) => {
         };
       })
     );
-  };
+  }
 
   return (
     <>
-      {newOptions.map(({ label, value, isActive }) => (
-        <HitTheMoleButton
-          key={value}
-          onClick={() => handleClick(value)}
-          isActive={isActive}
-        >
-          {label}
-        </HitTheMoleButton>
-      ))}
+      {newOptions &&
+        newOptions.map(({ label, value, isActive }) => (
+          <HitTheMoleButton
+            key={value}
+            onClick={() => handleClick(value)}
+            isActive={isActive}
+          >
+            {label}
+          </HitTheMoleButton>
+        ))}
       ;
     </>
   );

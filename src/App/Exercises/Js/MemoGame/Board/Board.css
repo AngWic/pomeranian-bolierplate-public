@@ -19,11 +19,9 @@
 }
 
 .field-clicked {
-  background-color: #fe3756;
-  color: #ffffff;
+  background-color: #f3aea8;
 }
 
 .field-paired {
-  background-color: rgb(106, 106, 231);
-  color: #ffffff;
+  background-color: #baf7a0;
 }
