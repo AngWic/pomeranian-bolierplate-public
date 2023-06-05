@@ -1,6 +1,11 @@
 import './HitTheMoleButton.css';
 
-export const HitTheMoleButton = ({ children, isActive, onClick }) => {
+export const HitTheMoleButton = ({
+  children,
+  isActive,
+  onClick,
+  isDisabled,
+}) => {
   // let highlightClass;
 
   // //  if (isActive === true) {
@@ -38,6 +43,7 @@ export const HitTheMoleButton = ({ children, isActive, onClick }) => {
         isActive ? 'hit-the-mole-button-active' : ''
       }`}
       onClick={onClick}
+      isDisabled={isDisabled}
     >
       {children}
     </button>
