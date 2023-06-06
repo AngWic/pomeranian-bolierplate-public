@@ -1,0 +1,29 @@
+.retro {
+  color: rgb(219, 144, 4);
+  text-shadow: 0 2px 0 #292322, 0 3px 0 #c40, 0 4px 0 #c40, 0 5px 0 #c40,
+    0 6px 0 #c40;
+}
+
+.disco {
+  color: rgb(207, 65, 226);
+  text-shadow: -2px 2px 0 #292322, -4px 4px 0 rgb(159, 103, 224),
+    -6px 6px 0 #292322, -8px 8px 0 #fc0;
+}
+
+.anaglyph {
+  color: rgb(194, 174, 149);
+  text-shadow: -3px 0 0 rgba(255, 0, 0, 0.7), 3px 0 0 rgba(0, 255, 255, 0.7);
+}
+
+.hamburger {
+  color: rgb(230, 197, 158);
+  letter-spacing: 5px;
+  text-shadow: -1px 1px 0 #9a653b, -2px 2px 0 #9a653b, -6px 1px 0 #690,
+    2px 4px 0 #a10, -3px 3px 0 #e1b38e, -4px 4px 0 #9a653b, -5px 5px 0 #9a653b;
+}
+
+.neon {
+  color: rgb(255, 194, 229);
+  text-shadow: 0 -1px 0 #f00, 0 2px 0 #f00, 0 4px 0 #60f, -2px -2px 15px #f06,
+    2px -2px 15px #f06, -2px 2px 15px #f06, 2px 2px 15px #f06;
+}

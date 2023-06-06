@@ -11,6 +11,8 @@ import { jsFunctionsRouterMetaData as jsFunctionsRouterMetaData } from './JsFunc
 import { blockRouterMetaData as blockRouterMetaDataSetTimeOut } from './SetTimeout/router-data';
 import { blockRouterMetaData as blockRouterMetaDataHitTheMoleGame } from './HitTheMoleGame/router-data';
 import { routerMetaData as memoGameRouterData } from '../Js/MemoGame/router-data';
+import { blockRouterMetaData as blockRouterMetaDataTryCatch } from './TryCatchAndFinally/router-data';
+import { blockRouterMetaData as blockRouterMetaDataJsPrototypes } from './JsPrototypes/router-data';
 
 export const blockRouterMetaData = [
   blockRouterMetaDataJsVariables1,
@@ -24,5 +26,7 @@ export const blockRouterMetaData = [
   blockRouterMetaDataSetTimeOut,
   blockRouterMetaDataHitTheMoleGame,
   memoGameRouterData,
+  blockRouterMetaDataTryCatch,
+  blockRouterMetaDataJsPrototypes,
 ];
 export const blockRouterData = getParsedRouterDataList(blockRouterMetaData);
