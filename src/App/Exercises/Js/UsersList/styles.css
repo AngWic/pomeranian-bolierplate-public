@@ -1,0 +1,46 @@
+.users-list {
+  display: flex;
+  gap: 32px;
+}
+
+.users-list-input-wrapper {
+  flex: 1;
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}
+
+.users-list-list-wrapper {
+  flex: 1;
+  border: 1px solid #c8cbd1;
+  border-radius: 5px;
+}
+
+.users-list-input {
+  display: flex;
+  align-items: center;
+}
+
+.users-list-input div {
+  flex: 1;
+  margin-right: 32px;
+  font-weight: bolder;
+}
+
+.users-list-input input {
+  flex: 2;
+  width: 285px;
+  height: 48px;
+  border: 1px solid #c8cbd1;
+  border-radius: 5px;
+}
+
+.users-list-button {
+  color: white;
+  background-color: #fe3756;
+  border: 1px solid #fe3756;
+  border-radius: 5px;
+  padding: 12px 26px;
+  margin-left: 195px;
+  margin-right: 100px;
+}
