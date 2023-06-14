@@ -8,10 +8,14 @@ import { materialUIBasicElementsRouterMetaData } from './MaterialUIBasicElements
 
 import { sideEffectsRouterMetaData } from './SideEffects/router-data';
 
+import { localDevAndFetchRouterMetaData } from './LocalDevAndFetch/router-data';
+
+
 export const blockRouterMetaData = [
   SubRouteExampleMetaData,
   welcomeViewkRouterMetaData,
   materialUIBasicElementsRouterMetaData,
   sideEffectsRouterMetaData,
+  localDevAndFetchRouterMetaData
 ];
 export const blockRouterData = getParsedRouterDataList(blockRouterMetaData);
