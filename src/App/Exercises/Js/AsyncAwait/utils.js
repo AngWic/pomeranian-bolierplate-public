@@ -17,7 +17,7 @@ export const createRandomUser = (companyId) => {
 
 export const createRandomCompany = () => {
     return {
-    id: faker.string.uuid(),
+    companyId: faker.string.uuid(),
     name: faker.company.name(),
     motto: faker.company.catchPhrase(),
     };

@@ -73,31 +73,31 @@ useEffect(() => {
     );
 }, []);
 
-// const handleMottoAlert = (companyId) => {
-//   getCompanyDetails(companyId)
-//   .then((company) => {
-//     alert(company.motto)
-//   })
-//   .catch((err) => console.error(err));
-// }
+const handleMottoAlert = (companyId) => {
+  getCompanyDetails(companyId)
+  .then((company) => {
+    alert(company.motto)
+  })
+  .catch((err) => console.error(err));
+}
 
 //albo drugi sposób:
 
-const handleMottoAlert = async (companyId) => {
-  try {
-  const company = await getCompanyDetails(companyId);
-  alert(company.motto);
-} catch (e) {
-  console.error(e);
-}
-};
+// const handleMottoAlert = async (companyId) => {
+//   try {
+//   const company = await getCompanyDetails(companyId);
+//   alert(company.motto);
+// } catch (e) {
+//   console.error(e);
+// }
+// };
 
 
   return <>
   
   <h4>Companies</h4>
     {companies.map((company) => (
-      <div key={company.id} title={company.id}>
+      <div key={company.companyId} title={company.companyId}>
         {company.name}
       </div>
     ))}
@@ -112,7 +112,7 @@ const handleMottoAlert = async (companyId) => {
 
           Works for:
           <b> {companies.find((company) => 
-          company.id === employee.companyId)?.name || 'unknown company'}</b>
+          company.companyId === employee.companyId)?.name || 'unknown company'}</b>
           
           </i>
           {/* <button onClick={handleMottoAlert}>company motto</button> */}
