@@ -8,7 +8,7 @@ import { materialUIBasicElementsRouterMetaData } from './MaterialUIBasicElements
 
 import { sideEffectsRouterMetaData } from './SideEffects/router-data';
 
-import { localDevAndFetchRouterMetaData } from './LocalDevAndFetch/router-data';
+import { localDevAndFetchRouterMetaData } from './TodoList/router-data';
 
 
 export const blockRouterMetaData = [
