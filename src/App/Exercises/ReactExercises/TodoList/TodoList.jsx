@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import './styles.css';
 import { TodoItem } from './TodoItem/TodoItem';
+import { requestHandler } from './requestHandler';
 
 
 function CatErrorImg() {
@@ -21,22 +22,39 @@ export const TodoList = () => {
 
   setIsLoading(true);
 
-  //tutaj jesteśmy, zanim zostanie wysłane zapytanie o dane
-  const response = await fetch('http://localhost:3333/api/todo');
-  const getJsonData = await response.json();
-  console.log(todos);  
-  
-  
-  
-  //tutaj jesteśmy, gdy otrzymujemy dane
 
-  if (response.status === 200) {
-    setTodos(getJsonData);
-  } 
+  // function setTodoListWhenOk(json) {
+  //   setTodos(json);
+  // }
+  // requestHandler(setTodoListWhenOk);
+  // to samo można zapisać:
+
+  requestHandler('GET')
+    .then((jsonResponse) => {
+      setTodos(jsonResponse);
+    })
+    .catch((errorMessage) => {
+      setError(errorMessage);
+    })
+    .finally(() => {
+      setIsLoading(false);
+    });
+    
+  //tutaj jesteśmy, zanim zostanie wysłane zapytanie o dane
+  // const response = await fetch('http://localhost:3333/api/todo');
+  // const getJsonData = await response.json();
+  // console.log(todos);  
   
-  if (response.status !==200 && getJsonData.message) {
-    setError(getJsonData.message);
-  }
+   
+  // //tutaj jesteśmy, gdy otrzymujemy dane
+
+  // if (response.status === 200) {
+  //   setTodos(getJsonData);
+  // } 
+  
+  // if (response.status !==200 && getJsonData.message) {
+  //   setError(getJsonData.message);
+  // }
   
   // if (getJsonData.message) {
   //     setError(getJsonData.message);
@@ -44,12 +62,10 @@ export const TodoList = () => {
   //     setTodos(getJsonData);
       
   //  }
-
-  setIsLoading(false);
+  
   };
 
-  
-
+ 
   useEffect(() => {
     getTodos();
   }, []);
@@ -57,7 +73,9 @@ export const TodoList = () => {
   
   return <div><h3>TODO</h3>
 
-    {error && (<h1>Oh-o! Something went wrong...
+    {error && (
+      <h1>
+      Oh-o! Something went wrong...
       <br />
       {error}
       <br />
@@ -88,6 +106,8 @@ export const TodoList = () => {
         isDone={isDone}
         note={note}
         title={title}
+        getTodos={getTodos}
+        setError={setError}
         />
       )
     })}

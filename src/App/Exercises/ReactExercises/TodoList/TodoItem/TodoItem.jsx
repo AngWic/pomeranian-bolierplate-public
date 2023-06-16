@@ -1,5 +1,7 @@
 import './todoitem.css';
+import { useState } from 'react';
 import { TrashbinIcon } from '../../../../Components/Icons/TrashbinIcon';
+import { requestHandler } from '../requestHandler';
 
 
 const parseDate = (date) => {
@@ -7,22 +9,52 @@ const parseDate = (date) => {
     return dateObj.toDateString();
 };
 
+export const TodoItem = ({ 
+    author, 
+    createdAt, 
+    doneDate, 
+    id, 
+    isDone, 
+    note, 
+    title, 
+    getTodos, 
+    setError, 
+}) => {
+
+    const deleTodo = async (selectedId) => {
+
+        requestHandler('DELETE', selectedId)
+            .then(() => {
+                getTodos();
+            })
+            .catch((errorMessage) => {
+                setError(errorMessage);
+            });
 
 
 
-export const TodoItem = ({ author, createdAt, doneDate, id, isDone, note, title }) => {
+        // const response = await 
+        //     fetch(`http://localhost:3333/api/todo/${selectedId}`, { method: 'DELETE'});
+        // const getJsonData = await response.json();
 
-    const deleTodo = (id) => {
-        fetch('http://localhost:3333/api/todo', { method: 'DELETE'});
-        //https://kursjs.pl/kurs/ajax/fetch spr.!!!!!!     
+
+        // if (response.status === 200) {
+        //     TodoList();
+        // } 
         
+        // if (response.status !==200 && getJsonData.message) {
+        //     setError(getJsonData.message);
+        //   }
+        // console.log(response);
     }
+    
+     
+    //     //https://kursjs.pl/kurs/ajax/fetch spr.!!!!!!     
+        
 
     return (
         <div className='todo-list'> 
 
-        <h3 className='todo-lidt-header'>What to do?</h3>
-        <hr />
             <div className='todo-list-content'>
                 
                 <div className='todo-title'>{title}</div>
@@ -31,9 +63,13 @@ export const TodoItem = ({ author, createdAt, doneDate, id, isDone, note, title 
                 <br />
                 <div className='todo-note'>Note: {note}</div>
                 </div>
+                <hr />
                 
             <div className='todo-is-done'>
-                <div><TrashbinIcon onClick={() => deleTodo()}/></div>
+                <div className='todo-trashbin-icon'>                    
+                    <TrashbinIcon onClick={() => deleTodo(id)}/>
+                </div>
+                {/* <button onClick={() => {deleTodo(id);}}><TrashbinIcon /></button> */}
             { isDone &&
                 <>
                     <div className="todo-check-done">&#10004;</div>

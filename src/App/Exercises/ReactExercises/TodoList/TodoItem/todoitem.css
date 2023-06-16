@@ -8,10 +8,6 @@
     
 }
 
-.todo-lidt-header {
-    color: rgb(245, 104, 127);
-}
-
 .todo-title {
     color:rgb(70, 70, 70);
     font-weight: 500;
@@ -43,4 +39,8 @@
 .todo-done-date {
     color: grey;
     font-size: small;
+}
+
+.todo-trashbin-icon {
+    cursor: pointer;
 }
