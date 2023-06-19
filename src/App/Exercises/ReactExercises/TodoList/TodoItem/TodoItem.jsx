@@ -18,8 +18,10 @@ export const TodoItem = ({
     note, 
     title, 
     getTodos, 
-    setError, 
+     
 }) => {
+
+    const [deleteError, setDeleteError] = useState('');
 
     const deleTodo = async (selectedId) => {
 
@@ -28,7 +30,7 @@ export const TodoItem = ({
                 getTodos();
             })
             .catch((errorMessage) => {
-                setError(errorMessage);
+                setDeleteError(errorMessage);
             });
 
 
@@ -66,10 +68,12 @@ export const TodoItem = ({
                 <hr />
                 
             <div className='todo-is-done'>
+                
                 <div className='todo-trashbin-icon'>                    
                     <TrashbinIcon onClick={() => deleTodo(id)}/>
                 </div>
                 {/* <button onClick={() => {deleTodo(id);}}><TrashbinIcon /></button> */}
+            <div className='delete-error'>{deleteError}</div>
             { isDone &&
                 <>
                     <div className="todo-check-done">&#10004;</div>

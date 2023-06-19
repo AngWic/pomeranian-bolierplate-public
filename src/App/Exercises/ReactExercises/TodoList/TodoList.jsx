@@ -107,7 +107,7 @@ export const TodoList = () => {
         note={note}
         title={title}
         getTodos={getTodos}
-        setError={setError}
+        
         />
       )
     })}

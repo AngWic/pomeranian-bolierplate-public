@@ -31,9 +31,13 @@
 
 
 
-.todo-check-done{
+/* .todo-check-done{
     color:green;
    
+} */
+
+.delete-error {
+    color: red;
 }
 
 .todo-done-date {
