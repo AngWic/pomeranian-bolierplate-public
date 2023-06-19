@@ -2,11 +2,17 @@ import './todoitem.css';
 import { useState } from 'react';
 import { TrashbinIcon } from '../../../../Components/Icons/TrashbinIcon';
 import { requestHandler } from '../requestHandler';
+import { TodoStatus } from '../TodoStatus/TodoStatus';
+
 
 
 const parseDate = (date) => {
-    const dateObj = new Date(date);
-    return dateObj.toDateString();
+    if (date) {
+        const dateObj = new Date(date);
+        return dateObj.toDateString();
+    } else {
+        return date;
+    }
 };
 
 export const TodoItem = ({ 
@@ -24,17 +30,13 @@ export const TodoItem = ({
     const [deleteError, setDeleteError] = useState('');
 
     const deleTodo = async (selectedId) => {
-
         requestHandler('DELETE', selectedId)
             .then(() => {
                 getTodos();
             })
-            .catch((errorMessage) => {
-                setDeleteError(errorMessage);
+            .catch(() => {
+                setDeleteError('Nie udało się usunąć');
             });
-
-
-
         // const response = await 
         //     fetch(`http://localhost:3333/api/todo/${selectedId}`, { method: 'DELETE'});
         // const getJsonData = await response.json();
@@ -49,6 +51,20 @@ export const TodoItem = ({
         //   }
         // console.log(response);
     }
+
+
+    const [markAsDoneError, setMarkAsDoneError] = useState('');
+
+    const markAsDone = async () => {
+        setMarkAsDoneError(''); // w tym miejscu czyścimy błędy WAŻNE! inaczej byłby bug i po error i po ponownym kliknięciu check-icon kolor zostałby czerwony
+        requestHandler('PUT', `${id}/markAsDone`)
+            .then(() => {
+                getTodos();
+            })
+            .catch(() => {
+                setMarkAsDoneError('Nie udało się ukończyć');
+            });
+      }
     
      
     //     //https://kursjs.pl/kurs/ajax/fetch spr.!!!!!!     
@@ -74,11 +90,17 @@ export const TodoItem = ({
                 </div>
                 {/* <button onClick={() => {deleTodo(id);}}><TrashbinIcon /></button> */}
             <div className='delete-error'>{deleteError}</div>
-            { isDone &&
+            <TodoStatus 
+                isDone={isDone}  
+                isDoneDate={parseDate(doneDate)}
+                markAsDone={markAsDone} 
+                markAsDoneError={markAsDoneError}
+                />
+            {/* { isDone &&
                 <>
                     <div className="todo-check-done">&#10004;</div>
                     <div className='todo-done-date'>{parseDate(doneDate)}</div>
-                </>}
+                </>} */}
             </div>
           
         </div>

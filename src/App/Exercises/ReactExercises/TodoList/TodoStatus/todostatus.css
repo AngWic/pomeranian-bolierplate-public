@@ -1,0 +1,30 @@
+.todo-status {
+    color: grey;
+}
+
+.todo-unchecked-icon {
+    color: grey;
+    font-size: 3em;
+}
+
+.todo-unchecked-icon:hover {
+    cursor: pointer;
+    font-size: 3.5em;
+    color: green;
+    text-shadow: 0 -2px 0 rgb(122, 231, 122),
+            0 3px 0 rgb(157, 231, 157),
+            0 4px 0 rgb(157, 231, 157);
+    transition: 1s all;
+
+}
+
+.todo-checked-icon {
+    color: green;
+    font-size: 3em;
+
+}
+
+.mark-error {
+    color: red;
+    font-size: 3em;
+}

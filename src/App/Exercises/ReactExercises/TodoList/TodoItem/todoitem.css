@@ -1,7 +1,7 @@
 .todo-list {
     border: 1px solid grey;
     border-radius: 15px;
-    box-shadow: 0 2px 2px grey;
+    box-shadow: 0 3px 2px grey;
     padding: 10px;
     margin: 10px;
     font-weight: bold;
@@ -13,13 +13,13 @@
     font-weight: 500;
     font-size: xx-large;
     letter-spacing: 2px;
-    text-shadow: 0 -1px 0 rgb(247, 153, 169), 
-            0 2px 0 rgb(247, 153, 169), 
+    text-shadow: 0 -1px 0 rgb(184, 184, 184), 
+            0 2px 0 rgb(184, 184, 184), 
             0 3px 0 rgb(70, 70, 70), 
-            -2px -2px 15px rgb(245, 173, 185), 
-            2px -2px 15px rgb(245, 173, 185), 
-            -2px 2px 15px rgb(245, 173, 185), 
-            2px 2px 15px rgb(245, 173, 185);
+            -2px -2px 15px rgb(143, 247, 238), 
+            2px -2px 15px rgb(143, 247, 238), 
+            -2px 2px 15px rgb(143, 247, 238), 
+            2px 2px 15px rgb(143, 247, 238);
     
 }
 
@@ -29,12 +29,6 @@
     color:rgb(8, 8, 8);
 }
 
-
-
-/* .todo-check-done{
-    color:green;
-   
-} */
 
 .delete-error {
     color: red;
@@ -47,4 +41,5 @@
 
 .todo-trashbin-icon {
     cursor: pointer;
+    font-size: 2em;
 }
