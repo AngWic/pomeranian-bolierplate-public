@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import './styles.css';
 import { TodoItem } from './TodoItem/TodoItem';
+import { TodoForm } from './TodoForm/TodoForm';
 import { requestHandler } from './requestHandler';
 
 
@@ -17,6 +18,7 @@ export const TodoList = () => {
   const [todos, setTodos] = useState([]);
   const [error, setError] = useState();
   const [isLoading, setIsLoading] = useState(false);
+  const [showCreateForm, setShowCreateForm] = useState(false);
   
   async function getTodos() {
 
@@ -70,8 +72,16 @@ export const TodoList = () => {
     getTodos();
   }, []);
 
+  if (showCreateForm) {
+    return (
+    <div className='todo-list'>
+      <TodoForm hide={setShowCreateForm}/>
+    </div>
+    );
+  }
+
   
-  return <div><h3>TODO</h3>
+  return (<div><h3>TODO</h3>
 
     {error && (
       <h1>
@@ -111,5 +121,8 @@ export const TodoList = () => {
         />
       )
     })}
-  </div>;
+    <button onClick={() => setShowCreateForm(true)}>Dodaj</button>
+    {showCreateForm && <TodoForm />}
+  </div>
+  );
 };

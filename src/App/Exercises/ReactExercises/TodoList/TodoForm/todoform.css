@@ -1,0 +1,10 @@
+.todo-form {
+    margin: 6px;
+    color: gray;
+}
+
+.todo-form-back {
+    cursor: pointer;
+    color: black;
+    margin: 5px;
+}
