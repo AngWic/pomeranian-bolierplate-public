@@ -1,45 +1,39 @@
 .todo-list {
-    border: 1px solid grey;
-    border-radius: 15px;
-    box-shadow: 0 3px 2px grey;
-    padding: 10px;
-    margin: 10px;
-    font-weight: bold;
-    
+  border: 1px solid grey;
+  border-radius: 15px;
+  box-shadow: 0 3px 2px grey;
+  padding: 10px;
+  margin: 10px;
+  font-weight: bold;
 }
 
 .todo-title {
-    color:rgb(70, 70, 70);
-    font-weight: 500;
-    font-size: xx-large;
-    letter-spacing: 2px;
-    text-shadow: 0 -1px 0 rgb(184, 184, 184), 
-            0 2px 0 rgb(184, 184, 184), 
-            0 3px 0 rgb(70, 70, 70), 
-            -2px -2px 15px rgb(143, 247, 238), 
-            2px -2px 15px rgb(143, 247, 238), 
-            -2px 2px 15px rgb(143, 247, 238), 
-            2px 2px 15px rgb(143, 247, 238);
-    
+  color: rgb(70, 70, 70);
+  font-weight: 500;
+  font-size: xx-large;
+  letter-spacing: 2px;
+  text-shadow: 0 -1px 0 rgb(184, 184, 184), 0 2px 0 rgb(184, 184, 184),
+    0 3px 0 rgb(70, 70, 70), -2px -2px 15px rgb(143, 247, 238),
+    2px -2px 15px rgb(143, 247, 238), -2px 2px 15px rgb(143, 247, 238),
+    2px 2px 15px rgb(143, 247, 238);
 }
 
 .todo-note {
-    font-style: italic;
-    font-weight: 400;
-    color:rgb(8, 8, 8);
+  font-style: italic;
+  font-weight: 400;
+  color: rgb(8, 8, 8);
 }
 
-
 .delete-error {
-    color: red;
+  color: red;
 }
 
 .todo-done-date {
-    color: grey;
-    font-size: small;
+  color: grey;
+  font-size: small;
 }
 
 .todo-trashbin-icon {
-    cursor: pointer;
-    font-size: 2em;
+  cursor: pointer;
+  font-size: 2.5em;
 }

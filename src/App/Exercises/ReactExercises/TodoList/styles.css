@@ -9,3 +9,25 @@
 .todo-list-button:hover {
     background-color: rgb(236, 194, 58);
 }
+
+.todo-button-add {
+    background-color: #FE3756;
+    color: #FFFFFF;
+    font-weight: 500;
+    font-size: 15px;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+    gap: 16px;
+    width: 93px;
+    height: 46px;
+    border: 1px solid #FE3756;
+    border-radius: 5px;
+    cursor: pointer;
+
+    &:hover {
+        background-color: #8b1124;
+        border: 1px solid #8b1124;
+
+    }
+}
