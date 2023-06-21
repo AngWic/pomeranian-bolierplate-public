@@ -81,7 +81,15 @@ export const TodoItem = ({
         </button>
         {/* <button onClick={() => {deleTodo(id);}}><TrashbinIcon /></button> */}
 
-        <button className="todo-edit-icon">&#9998;</button>
+        <button
+          className="todo-edit-icon"
+          onClick={() => {
+            setShowCreateForm(true);
+            setEditObject({ id: id, title: title, author: author, note: note });
+          }}
+        >
+          &#9998;
+        </button>
 
         <div className="delete-error">{deleteError}</div>
         <TodoStatus

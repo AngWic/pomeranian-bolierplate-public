@@ -2,19 +2,21 @@ import './todoform.css';
 import { requestHandler } from '../requestHandler';
 import { useState } from 'react';
 
-export const TodoForm = ({ hide, getTodos }) => {
+export const TodoForm = ({ hide, getTodos, editObject, setEditObject }) => {
+  const isEditMode = Boolean(editObject);
+
   const [message, setMessage] = useState();
   const [showPopup, setShowPopup] = useState(false);
 
-  const [title, setTitle] = useState('');
-  const [author, setAuthor] = useState('');
-  const [note, setNote] = useState('');
+  const [title, setTitle] = useState(isEditMode ? editObject.title : '');
+  const [author, setAuthor] = useState(isEditMode ? editObject.author : '');
+  const [note, setNote] = useState(isEditMode ? editObject.note : '');
 
-  console.log(title);
-  console.log(author);
-  console.log(note);
+  // console.log(title);
+  // console.log(author);
+  // console.log(note);
 
-  console.log('showPopup', showPopup);
+  // console.log('showPopup', showPopup);
 
   const createNewTodo = async () => {
     requestHandler('POST', undefined, {
@@ -23,8 +25,25 @@ export const TodoForm = ({ hide, getTodos }) => {
       note: note,
     })
       .then((response) => {
-        console.log(response);
+        // console.log(response);
         setMessage(`Dodano nowe zadanie do listy: "${response.title}"`); //pokazać, że dodano nowego todo
+      })
+      .catch((errorMessage) => {
+        setMessage(
+          'Coś poszło nie tak, spróbuj ponownie. Błąd: ' + errorMessage
+        );
+      });
+  };
+
+  const editTodo = async () => {
+    requestHandler('PUT', editObject.id, {
+      title: title,
+      author: author,
+      note: note,
+    })
+      .then((response) => {
+        // console.log(response);
+        setMessage(`Edytowano zadanie z listy: "${response.title}"`);
       })
       .catch((errorMessage) => {
         setMessage('Wystąpił błąd, spróbuj ponownie. Błąd: ' + errorMessage);
@@ -39,13 +58,18 @@ export const TodoForm = ({ hide, getTodos }) => {
     }
 
     if (title !== '' && author.length !== '' && note !== '') {
-      createNewTodo();
+      if (isEditMode) {
+        editTodo();
+      } else {
+        createNewTodo();
+      }
     }
   };
 
   function backToTodoList() {
     hide(false);
     getTodos();
+    setEditObject();
   }
 
   return (
@@ -57,6 +81,8 @@ export const TodoForm = ({ hide, getTodos }) => {
       <hr />
 
       <h3>Dodawanie zadania</h3>
+
+      {message && <span className="form-message-box">{message}</span>}
 
       <form onSubmit={handleSubmit}>
         <h4>Tytuł:</h4>
@@ -90,17 +116,11 @@ export const TodoForm = ({ hide, getTodos }) => {
         />
         <br />
 
-        <button
-          createNewTodo={createNewTodo}
-          className="todo-button-add"
-          type="submit"
-        >
-          Dodaj
+        <button className="todo-button-add" type="submit">
+          {isEditMode ? 'Zapisz' : 'Dodaj'}
         </button>
 
         <hr />
-
-        {message && <p className="form-message-box">{message}</p>}
       </form>
 
       {showPopup && (

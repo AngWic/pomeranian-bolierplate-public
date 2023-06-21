@@ -74,13 +74,18 @@ export const TodoList = () => {
   if (showCreateForm) {
     return (
       <div className="todo-list">
-        <TodoForm hide={setShowCreateForm} getTodos={getTodos} />
+        <TodoForm
+          hide={setShowCreateForm}
+          getTodos={getTodos}
+          editObject={editObject}
+          setEditObject={setEditObject}
+        />
       </div>
     );
   }
 
   return (
-    <div>
+    <div className="todo-list">
       <h3>TODO</h3>
       <div>Tutaj znajdziesz listę swoich zadań.</div>
 
@@ -94,7 +99,7 @@ export const TodoList = () => {
             className="todo-list-button"
             onClick={() => {
               //gdy kliknięty...
-              setError(false);
+              setError();
               getTodos();
             }}
           >
