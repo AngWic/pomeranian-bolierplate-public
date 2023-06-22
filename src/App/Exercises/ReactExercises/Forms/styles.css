@@ -1,0 +1,59 @@
+.forms {
+  background-color: rgb(233, 233, 233);
+  border-radius: 8px;
+  box-shadow: -3px 3px 3px rgb(201, 200, 200);
+  padding: 15px;
+}
+
+.forms-input-order-data {
+  width: 400px;
+  height: 30px;
+  border: 1px solid rgb(201, 200, 200);
+  border-radius: 5px;
+}
+
+.forms-textarea-order-data {
+  border: 1px solid rgb(201, 200, 200);
+  border-radius: 5px;
+}
+
+.forms-label-terms {
+  color: #fe3756;
+}
+
+.forms-span-terms {
+  color: #fe3756;
+  font-size: x-small;
+  font-weight: bolder;
+}
+
+.forms-button-order {
+  background-color: #fe3756;
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 15px;
+  justify-content: center;
+  align-items: center;
+  padding: 12px;
+  margin-left: 100px;
+  width: 400px;
+  height: 46px;
+  border: 1px solid #fe3756;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.forms-required-field-info {
+  font-size: x-small;
+  color: gray;
+}
+
+/* pseudoklasy do użycia
+:hover
+:active
+:invalid
+:focus 
+
+do checkboxów
+::after
+::before*/
