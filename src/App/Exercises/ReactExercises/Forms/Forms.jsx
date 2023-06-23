@@ -1,9 +1,14 @@
 import './styles.css';
 import { useState } from 'react';
+import Select from 'react-select';
+import RadioButtons from './RadioButtons/RadioButtons';
+import FormsCheckbox from './FormsCheckbox/FormsCheckbox';
 
 export const Forms = () => {
+  //wybierz produkt:
+  const [type, setType] = useState('');
+  console.log(type);
   //formy płatności:
-
   const [payment, setPayment] = useState('blik');
   //--------poprzednia wersja---------
   // const [blik, setBlik] = useState(false);
@@ -17,7 +22,6 @@ export const Forms = () => {
 
   //dane do zamówienia:
   const [name, setName] = useState('');
-  const [type, setType] = useState('');
 
   //założenie konta + hasło:
   const [userAccount, setUserAccount] = useState(false);
@@ -29,9 +33,39 @@ export const Forms = () => {
   const sendFormData = (e) => {
     e.preventDefault();
     console.log('name: ', name);
-    console.log('type: ', type);
+
     console.log('payment', payment);
   };
+
+  const formsTypeOptions = [
+    { value: 'front-end', label: 'Kurs front-end developer' },
+    { value: 'back-end', label: 'Kurs back-end developer' },
+    { value: 'tester', label: 'Kurs dla testerów' },
+  ];
+
+  const paymentOptions = [
+    { value: 'blik', label: 'Blik' },
+    { value: 'paypal', label: 'Paypal' },
+    { value: 'transfer', label: 'Przelew tradycyjny' },
+  ];
+
+  const additionalOptions = [
+    { value: 'environment', label: 'ustawienie środowiska' },
+    { value: 'github', label: 'intro do GitHub' },
+    { value: 'extras', label: 'materiały dodatkowe' },
+  ];
+
+  const nameIsEmpty = name === '';
+  const typeIsEmpty = type === '';
+  const rulesIsNotChecked = !acceptTerms;
+
+  const submitDisabled = nameIsEmpty || typeIsEmpty || rulesIsNotChecked;
+
+  const isNameTyped = name !== '';
+
+  const isProperNameAndSurname = name.trim().includes(' ');
+
+  console.log(isProperNameAndSurname);
 
   return (
     <div className="forms">
@@ -39,53 +73,27 @@ export const Forms = () => {
         <h2>Zamówienie produktu</h2>
 
         <h4>Wybierz produkt*</h4>
-        <select
-          className="forms-input-order-data"
-          name="select-course"
-          onChange={(event) => setType(event.target.value)}
-        >
-          <option>--rozwiń listę--</option>
 
-          <option value="front-end">Kurs front-end developer</option>
-          <option value="back-end">Kurs back-end developer</option>
-          <option value="tester">Kurs dla testerów</option>
-        </select>
+        <br />
+
+        <Select
+          options={formsTypeOptions}
+          value={formsTypeOptions.find((option) => option.value === type)}
+          onChange={(optionObj) => {
+            setType(optionObj.value);
+          }}
+        />
+
         <br />
 
         <h4>Wybierz formę płatności*</h4>
-        <div>
-          <input
-            type="radio"
-            id="payment-blik"
-            name="payment"
-            checked={payment === 'blik'}
-            value="blik"
-            onChange={(e) => setPayment(e.target.value)}
-          />
-          <label htmlFor="payment-blik">Blik</label>
-        </div>
-        <div>
-          <input
-            type="radio"
-            id="payment-paypal"
-            name="payment"
-            checked={payment === 'paypal'}
-            value="paypal"
-            onChange={(e) => setPayment(e.target.value)}
-          />
-          <label htmlFor="payment-paypal">Paypal</label>
-        </div>
-        <div>
-          <input
-            type="radio"
-            id="payment-transfer"
-            name="payment"
-            checked={payment === 'transfer'}
-            value="transfer"
-            onChange={(e) => setPayment(e.target.value)}
-          />
-          <label htmlFor="payment-transfer">Przelew tradycyjny</label>
-        </div>
+
+        <RadioButtons
+          groupName="payment"
+          options={paymentOptions}
+          selectedOption={payment}
+          onSelect={setPayment}
+        />
         <br />
 
         <h4>Opcje dodatkowe do zamówienia</h4>
@@ -122,6 +130,25 @@ export const Forms = () => {
           />
           <label htmlFor="order-3">materiały dodatkowe</label>
         </div>
+        {/* <FormsCheckbox
+          options={additionalOptions}
+          selectedOption={optionEnvironment}
+          onSelect={setOptionEnvironment}
+          onChange={() => setOptionEnvironment(!optionEnvironment)}
+        />
+        <FormsCheckbox
+          options={additionalOptions}
+          selectedOption={optionGithub}
+          onSelect={setOptionGithub}
+          onChange={() => setOptionGithub(!optionGithub)}
+        />
+        <FormsCheckbox
+          options={additionalOptions}
+          selectedOption={optionExtras}
+          onSelect={setOptionExtras}
+          onChange={() => setOptionExtras(!optionExtras)}
+        /> */}
+
         <br />
         <br />
 
@@ -136,6 +163,9 @@ export const Forms = () => {
           placeholder="wpisz swoje imię i nazwisko"
           required
         />
+        {isNameTyped && !isProperNameAndSurname && (
+          <span className="forms-validation-info"> Dane niepoprawne</span>
+        )}
         <h4>Twój pseudonim*</h4>
         <input
           className="forms-input-order-data"
@@ -241,7 +271,11 @@ export const Forms = () => {
         <br />
         <br />
 
-        <button className="forms-button-order" type="submit">
+        <button
+          className="forms-button-order"
+          type="submit"
+          disabled={submitDisabled}
+        >
           SKŁADAM ZAMÓWIENIE
         </button>
         <br />
@@ -254,6 +288,29 @@ export const Forms = () => {
     </div>
   );
 };
+
+//---poprdzednia wersja dla wybierz produkt---
+{
+  /* <select
+  className="forms-input-order-data"
+  name="select-course"
+  onChange={(event) => setType(event.target.value)}
+  value={type}
+>
+  <option>--rozwiń listę--</option>
+  {formsTypeOptions.map((option) => {
+    return (
+      <option key={option.value} value={option.value}>
+        {option.label}
+      </option>
+    );
+  })}
+
+  {/* <option value="front-end">Kurs front-end developer</option>
+  <option value="back-end">Kurs back-end developer</option>
+  <option value="tester">Kurs dla testerów</option> */
+}
+// </select> */}
 
 {
   /* <div>

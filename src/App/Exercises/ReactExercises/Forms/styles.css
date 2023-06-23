@@ -48,6 +48,10 @@
   color: gray;
 }
 
+.forms-validation-info {
+  color: #fe3756;
+}
+
 /* pseudoklasy do użycia
 :hover
 :active
