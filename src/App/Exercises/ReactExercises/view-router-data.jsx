@@ -12,6 +12,8 @@ import { localDevAndFetchRouterMetaData } from './TodoList/router-data';
 
 import { useRefRouterMetaData } from './UseRef/router-data';
 
+import { formsRouterMetaData } from './Forms/router-data';
+
 export const blockRouterMetaData = [
   SubRouteExampleMetaData,
   welcomeViewkRouterMetaData,
@@ -19,5 +21,6 @@ export const blockRouterMetaData = [
   sideEffectsRouterMetaData,
   localDevAndFetchRouterMetaData,
   useRefRouterMetaData,
+  formsRouterMetaData,
 ];
 export const blockRouterData = getParsedRouterDataList(blockRouterMetaData);
