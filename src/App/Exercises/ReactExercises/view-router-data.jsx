@@ -14,6 +14,8 @@ import { useRefRouterMetaData } from './UseRef/router-data';
 
 import { formsRouterMetaData } from './Forms/router-data';
 
+import { formValidationRouterMetaData } from './FormValidation/router-data';
+
 export const blockRouterMetaData = [
   SubRouteExampleMetaData,
   welcomeViewkRouterMetaData,
@@ -22,5 +24,6 @@ export const blockRouterMetaData = [
   localDevAndFetchRouterMetaData,
   useRefRouterMetaData,
   formsRouterMetaData,
+  formValidationRouterMetaData,
 ];
 export const blockRouterData = getParsedRouterDataList(blockRouterMetaData);
