@@ -15,7 +15,7 @@ import { blockRouterMetaData as blockRouterMetaDataTryCatch } from './TryCatchAn
 import { blockRouterMetaData as blockRouterMetaDataJsPrototypes } from './JsPrototypes/router-data';
 import { blockRouterMetaData as blockRouterMetaDataUsersList } from './UsersList/router-data';
 import { blockRouterMetaData as asyncAwaitRouterMetaData } from './AsyncAwait/router-data';
-
+import { blockRouterMetaData as unitTestsRouterMetaData } from './UnitTests/router-data';
 
 export const blockRouterMetaData = [
   blockRouterMetaDataJsVariables1,
@@ -32,6 +32,7 @@ export const blockRouterMetaData = [
   blockRouterMetaDataTryCatch,
   blockRouterMetaDataJsPrototypes,
   blockRouterMetaDataUsersList,
-  asyncAwaitRouterMetaData
+  asyncAwaitRouterMetaData,
+  unitTestsRouterMetaData,
 ];
 export const blockRouterData = getParsedRouterDataList(blockRouterMetaData);
