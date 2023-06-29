@@ -1,6 +1,6 @@
 import './styles.css';
 import { useState } from 'react';
-import { useEffect } from 'react';
+// import { useEffect } from 'react';
 
 export function Array() {
   const [objList, setObjList] = useState([
@@ -38,8 +38,6 @@ export function Array() {
     },
   ]);
 
-  console.log(objList.map((listElement) => listElement));
-
   return (
     <div>
       <b>LIST</b>
@@ -49,6 +47,7 @@ export function Array() {
           <p>Age: {age}</p>
         </div>
       ))}
+      <button onClick={() => setObjList(objList)}>click for list</button>
     </div>
   );
 }

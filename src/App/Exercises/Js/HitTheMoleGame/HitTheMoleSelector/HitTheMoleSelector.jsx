@@ -4,8 +4,6 @@ import { HitTheMoleButton } from '../HitTheMoleButton/HitTheMoleButton';
 export const HitTheMoleSelector = (props) => {
   const { options, setValue } = props;
 
-  console.log(options);
-
   const [newOptions, setNewOptions] = useState(options);
 
   function handleClick(value) {
@@ -20,8 +18,6 @@ export const HitTheMoleSelector = (props) => {
       })
     );
   }
-
-  console.log(newOptions);
 
   return (
     <>

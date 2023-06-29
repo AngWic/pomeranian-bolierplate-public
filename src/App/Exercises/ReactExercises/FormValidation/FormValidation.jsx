@@ -52,15 +52,17 @@ export function FormValidation() {
     const email = data.target.email.value;
 
     if (isPasswordValid(password, passwordRepeat) && isEmailValid(email)) {
-      console.log('OK');
+      return <div>OK</div>;
     } else {
-      console.log('Error');
+      return <div>Error</div>;
     }
   };
 
   return (
     <div className="forms-validation">
       <form className="form" onSubmit={sendFormData}>
+        {sendFormData}
+        <br />
         <input type="email" placeholder="Wpisz email" name="email" />
         <br /> <br />
         <input

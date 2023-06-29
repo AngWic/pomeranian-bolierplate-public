@@ -1,5 +1,5 @@
 import './styles.css';
-import React, { useEffect } from 'react';
+// import React, { useEffect } from 'react';
 import { useState } from 'react';
 
 export const SetTimeout = () => {

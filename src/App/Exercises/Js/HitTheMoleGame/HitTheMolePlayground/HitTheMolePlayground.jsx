@@ -34,15 +34,13 @@ export const HitTheMolePlayground = ({ gameScore, setGameScore }) => {
   //---------------po losowaniu---------------
 
   const [modifiedFields, setModifiedFields] = useState(fields); //wcześniej: fieldsWithRandomIndex
-  const [fieldWithMoleId, setfieldWithMoleId] = useState(getRandomInd(10));
+  const [fieldWithMoleId, setFieldWithMoleId] = useState(getRandomInd(10));
   // const [clickedFieldId, setModifiedFields] = useState(fields);
-
-  console.log('modifiedFields', modifiedFields);
 
   useEffect(() => {
     setInterval(() => {
       const newRandomIndex = getRandomInd(10);
-      setfieldWithMoleId(newRandomIndex);
+      setFieldWithMoleId(newRandomIndex);
     }, 1000);
   }, []);
 
@@ -69,7 +67,7 @@ export const HitTheMolePlayground = ({ gameScore, setGameScore }) => {
 
   const handleClick = (clickedField, isMolePresentFlag) => {
     //ustawienie stanu "was clicked?"
-    console.log(clickedField.id);
+
     setModifiedFields(
       modifiedFields.map((field) => {
         return {

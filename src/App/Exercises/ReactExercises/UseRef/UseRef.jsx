@@ -1,9 +1,10 @@
 import { useRef } from 'react';
 import './styles.css';
-import { useEffect } from 'react';
+// import { useEffect } from 'react';
 import { useState } from 'react';
 
 export const UseRef = () => {
+  // eslint-disable-next-line no-unused-vars
   const [click, setClick] = useState();
   const cursor = useRef(null);
 

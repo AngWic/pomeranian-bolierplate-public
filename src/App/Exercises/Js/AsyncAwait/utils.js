@@ -1,6 +1,5 @@
 import { faker } from '@faker-js/faker';
 
-
 export const createRandomUser = (companyId) => {
   return {
     companyId,
@@ -14,12 +13,10 @@ export const createRandomUser = (companyId) => {
   };
 };
 
-
 export const createRandomCompany = () => {
-    return {
+  return {
     companyId: faker.string.uuid(),
     name: faker.company.name(),
     motto: faker.company.catchPhrase(),
-    };
-
+  };
 };

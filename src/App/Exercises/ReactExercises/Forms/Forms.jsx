@@ -2,12 +2,12 @@ import './styles.css';
 import { useState } from 'react';
 import Select from 'react-select';
 import RadioButtons from './RadioButtons/RadioButtons';
-import FormsCheckbox from './FormsCheckbox/FormsCheckbox';
+// import FormsCheckbox from './FormsCheckbox/FormsCheckbox';
 
 export const Forms = () => {
   //wybierz produkt:
   const [type, setType] = useState('');
-  console.log(type);
+
   //formy płatności:
   const [payment, setPayment] = useState('blik');
   //--------poprzednia wersja---------
@@ -32,9 +32,6 @@ export const Forms = () => {
 
   const sendFormData = (e) => {
     e.preventDefault();
-    console.log('name: ', name);
-
-    console.log('payment', payment);
   };
 
   const formsTypeOptions = [
@@ -49,11 +46,11 @@ export const Forms = () => {
     { value: 'transfer', label: 'Przelew tradycyjny' },
   ];
 
-  const additionalOptions = [
-    { value: 'environment', label: 'ustawienie środowiska' },
-    { value: 'github', label: 'intro do GitHub' },
-    { value: 'extras', label: 'materiały dodatkowe' },
-  ];
+  // const additionalOptions = [
+  //   { value: 'environment', label: 'ustawienie środowiska' },
+  //   { value: 'github', label: 'intro do GitHub' },
+  //   { value: 'extras', label: 'materiały dodatkowe' },
+  // ];
 
   const nameIsEmpty = name === '';
   const typeIsEmpty = type === '';
@@ -64,8 +61,6 @@ export const Forms = () => {
   const isNameTyped = name !== '';
 
   const isProperNameAndSurname = name.trim().includes(' ');
-
-  console.log(isProperNameAndSurname);
 
   return (
     <div className="forms">
@@ -290,6 +285,7 @@ export const Forms = () => {
 };
 
 //---poprdzednia wersja dla wybierz produkt---
+// eslint-disable-next-line no-lone-blocks
 {
   /* <select
   className="forms-input-order-data"
@@ -312,6 +308,7 @@ export const Forms = () => {
 }
 // </select> */}
 
+// eslint-disable-next-line no-lone-blocks
 {
   /* <div>
         <input type="button" />

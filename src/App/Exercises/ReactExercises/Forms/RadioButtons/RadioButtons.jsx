@@ -25,6 +25,7 @@ export default function RadioButtons({
   );
 }
 
+// eslint-disable-next-line no-lone-blocks
 {
   //-----poprzednia wersja:------
   /* <div>

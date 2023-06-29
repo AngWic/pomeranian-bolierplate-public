@@ -25,6 +25,7 @@ export default function FormsCheckbox({
   );
 }
 
+// eslint-disable-next-line no-lone-blocks
 {
   /* <div>
           <input

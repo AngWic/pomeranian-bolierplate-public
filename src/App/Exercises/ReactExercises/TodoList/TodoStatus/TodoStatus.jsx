@@ -7,6 +7,7 @@ export const TodoStatus = ({
   markAsDoneError,
 }) => {
   const checkStatus = () => {
+    // eslint-disable-next-line default-case
     switch (isDone) {
       case true:
         return 'todo-checked-icon';

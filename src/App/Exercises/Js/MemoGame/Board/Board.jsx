@@ -78,7 +78,13 @@ export const Board = ({
         );
       }
     }
-  }, [firstClickedFieldId, secondClickedFieldId]);
+  }, [
+    board,
+    stepAmount,
+    setStepAmount,
+    firstClickedFieldId,
+    secondClickedFieldId,
+  ]);
 
   const resetFirstClickedFieldId = () => {
     setTimeout(() => {
@@ -91,8 +97,6 @@ export const Board = ({
       setFirstClickedFieldId(undefined);
     }, FIELD_CLICK_RESET_DELAY);
   };
-
-  console.log('board', board);
 
   const handleClick = (obj) => {
     if (firstClickedFieldId && firstClickedFieldId !== obj.id) {
@@ -111,7 +115,14 @@ export const Board = ({
     } else {
       setStopGame(true);
     }
-  }, [board, setBoard, firstClickedFieldId, secondClickedFieldId]);
+  }, [
+    board,
+    setBoard,
+    setMyTime,
+    setStopGame,
+    firstClickedFieldId,
+    secondClickedFieldId,
+  ]);
 
   return (
     <div className="board">

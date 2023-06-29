@@ -14,12 +14,13 @@ export function MemoGame() {
   const [stopGame, setStopGame] = useState(false);
   const [myTime, setMyTime] = useState(0);
 
-  console.log(boardSize);
+  // console.log(boardSize);
 
   let gameInterval;
 
   useEffect(() => {
     if (isGameStarted) {
+      // eslint-disable-next-line react-hooks/exhaustive-deps
       gameInterval = setInterval(() => {
         setTime((prevTime) => {
           return prevTime + 1;

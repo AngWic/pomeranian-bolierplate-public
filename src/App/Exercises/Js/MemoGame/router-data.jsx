@@ -1,5 +1,5 @@
 import { MemoGame } from './MemoGame';
-export const routerMetaData = {
+export const blockRouterMetaData = {
   path: 'memo-game',
   date: null,
   linkLabel: 'Memo Game',

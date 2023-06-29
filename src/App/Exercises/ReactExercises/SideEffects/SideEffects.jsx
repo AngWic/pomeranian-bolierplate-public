@@ -8,9 +8,7 @@ export function SideEffects() {
     const myPromise = new Promise((resolve, reject) => {
       const number = Math.floor(Math.random() * 2);
 
-      setTimeout(() => {
-        console.log('żądanie zostało przetworzone');
-      }, 2000);
+      setTimeout(() => {}, 2000);
 
       if (number === 1) {
         resolve([{ name: 'Iga' }, { name: 'Aga' }, { name: 'Olga' }]);
@@ -23,14 +21,10 @@ export function SideEffects() {
 
     myPromise //chaining:
       .then((result) => {
-        alert('loading...');
         setValue(result);
-        console.log('lista wyświetlona', result);
       })
       .catch((error) => {
-        alert('failed to load data, try again');
         setValue(error);
-        console.log('błąd, brak danych', error);
       });
     // .finally(() => {
     //   console.log('finally');

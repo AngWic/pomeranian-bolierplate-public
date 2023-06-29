@@ -5,9 +5,9 @@ import { useEffect } from 'react';
 export function DateTime() {
   const [myDate, setMyDate] = useState(new Date());
 
-  // useEffect(() => {
-  //   setMyDate(new Date());
-  // }, []);
+  useEffect(() => {
+    setMyDate(new Date());
+  }, []);
 
   // console.log(myDate);
 

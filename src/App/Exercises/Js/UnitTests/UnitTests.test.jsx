@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
-import { UnitTests } from './UnitTests';
 import userEvent from '@testing-library/user-event';
 import { act } from 'react-dom/test-utils';
+import { UnitTests } from './UnitTests';
 
 describe('Unit Tests', () => {
   test('loads and displays header with result', async () => {

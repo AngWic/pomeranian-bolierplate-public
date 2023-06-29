@@ -4,13 +4,13 @@ import React, { useState } from 'react';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import OutlinedInput from '@mui/material/OutlinedInput';
-import FormControl from '@mui/material/FormControl';
+// import FormControl from '@mui/material/FormControl';
 
-import InputLabel from '@mui/material/InputLabel';
+// import InputLabel from '@mui/material/InputLabel';
 
-import MenuItem from '@mui/material/MenuItem';
+// import MenuItem from '@mui/material/MenuItem';
 
-import Select from '@mui/material/Select';
+// import Select from '@mui/material/Select';
 
 import Slider from '@mui/material/Slider';
 
@@ -57,12 +57,10 @@ const Sliders = () => {
 
   const handleCreditValueChange = (event) => {
     setCreditValue(event.target.value);
-    console.log(event.target.value);
   };
 
   const handleCreditDurationChange = (event) => {
     setCreditDuration(event.target.value);
-    console.log(event.target.value);
   };
 
   const calculateRates = (creditValue, creditDuration) => {
@@ -129,7 +127,7 @@ export function MaterialUIBasicElements() {
   const [name, setName] = useState();
 
   const handleClick = () => {
-    console.log('Clicked');
+    return <div>Clicked</div>;
   };
 
   const handleNameChange = (event) => {
@@ -145,7 +143,7 @@ export function MaterialUIBasicElements() {
           console.log(event.target.value);
         }}
       /> */}
-      {/* <OutlinedInput defaultValue={name} onChange={handleNameChange} /> */}
+      <OutlinedInput defaultValue={name} onChange={handleNameChange} />
 
       <Button variant="outlined" onClick={handleClick}>
         Click me

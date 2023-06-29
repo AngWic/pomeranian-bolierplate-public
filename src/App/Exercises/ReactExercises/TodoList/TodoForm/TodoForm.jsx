@@ -1,6 +1,7 @@
 import './todoform.css';
-import { requestHandler } from '../requestHandler';
 import { useState } from 'react';
+
+import { requestHandler } from '../requestHandler';
 
 export const TodoForm = ({ hide, getTodos, editObject, setEditObject }) => {
   const isEditMode = Boolean(editObject);
