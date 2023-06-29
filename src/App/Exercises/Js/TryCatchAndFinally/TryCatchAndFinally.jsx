@@ -1,3 +1,9 @@
+import './styles.css';
+
+export const TryCatchAndFinally = () => {
+  return <div>Change me X</div>;
+};
+
 //CAŁY PLIK DO POPRAWY
 // import { useEffect } from 'react';
 // import { useState } from 'react';
