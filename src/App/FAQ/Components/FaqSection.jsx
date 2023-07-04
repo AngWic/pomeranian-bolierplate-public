@@ -2,8 +2,7 @@ import { useState } from 'react';
 import { ArrowIcon } from '../../Components/Icons/ArrowIcon';
 import './styles.css';
 
-export const FaqSection = (props) => {
-  const { question, answer } = props;
+export const FaqSection = ({ question, answer }) => {
   const [showAnswer, setShowAnswer] = useState();
 
   const toggleVisibility = () => {
@@ -21,9 +20,9 @@ export const FaqSection = (props) => {
             isArrowIconRotated ? arrowIconRotatedClass : ''
           }`}
         />
-        {props.question}
+        {question}
       </div>
-      {showAnswer && <div className="answer">{props.answer}</div>}
+      {showAnswer && <div className="answer">{answer}</div>}
     </div>
   );
 };
