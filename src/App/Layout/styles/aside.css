@@ -20,7 +20,7 @@ aside li {
 
 .menu-icon {
   margin-right: 10px;
-  fill: rgb(144, 157, 233);
+  fill: rgb(91, 127, 255);
 }
 
 .aside-row {
@@ -37,6 +37,6 @@ aside li a {
 }
 
 aside a.active {
-  background-color: rgb(245, 104, 127);
+  background-color: rgb(247, 75, 101);
   color: var(--color-white);
 }
