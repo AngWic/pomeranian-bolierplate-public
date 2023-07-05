@@ -13,7 +13,7 @@ export function Exercise() {
 
   const cars = ['Audi', 'Opel', 'Vw'];
 
-  const multiplyResult = multiply(value1, value2);
+  // const multiplyResult = multiply(value1, value2);
 
   return (
     <div>

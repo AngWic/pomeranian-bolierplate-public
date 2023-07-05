@@ -1,0 +1,14 @@
+.coffe-logo-1 {
+  background-image: url('./sufyan-XFXe2caPMfE-unsplash.jpg');
+  width: 700px;
+  height: 800px;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.hued {
+  filter: contrast(160%);
+  filter: brightness(5);
+  filter: hue-rotate(90deg);
+}

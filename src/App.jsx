@@ -8,6 +8,8 @@ import { Layout } from './App/Layout';
 import { Dashboard } from './App/Dashboard';
 import { Exercises } from './App/Exercises';
 import { MyCV } from './App/MyCV/MyCV';
+import { Blog } from './App/Blog';
+import { Faq } from './App/FAQ';
 
 export function App() {
   return (
@@ -18,7 +20,9 @@ export function App() {
           <Route path="dashboard/*" element={<Dashboard />} />
           <Route path="exercises/*" element={<Exercises />} />
           <Route path="blocks/*" element={<Blocks />} />
+          <Route path="blog/*" element={<Blog />} />
           <Route path="my-cv/*" element={<MyCV />} />
+          <Route path="faq/*" element={<Faq />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>

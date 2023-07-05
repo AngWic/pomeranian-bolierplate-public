@@ -1,0 +1,27 @@
+.hit-the-mole-container {
+  display: flex;
+  align-items: center;
+}
+
+.hit-the-mole-container .hit-the-mole-label {
+  width: 130px;
+}
+
+.hit-the-mole-value-field {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 36px;
+  width: 145px;
+  height: 56px;
+  background-color: #ebebeb;
+  margin: 10px;
+  border-radius: 8px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 31px;
+  text-align: center;
+}

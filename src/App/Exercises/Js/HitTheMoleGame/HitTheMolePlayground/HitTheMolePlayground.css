@@ -1,0 +1,27 @@
+.playground-moles {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  width: 600px;
+}
+
+.field-moles {
+  background-color: #ebebeb;
+  border-radius: 5px;
+  padding: 5px;
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+}
+
+.field-moles svg {
+  margin-bottom: -84px;
+}
+
+.field-moles-green {
+  background-color: #baf7a0;
+}
+
+.field-moles-red {
+  background-color: #f3aea8;
+}
