@@ -52,50 +52,50 @@ export const Exercise = () => {
   //   isTurned: false,
   //   id: '',
   // });
-  const [board, setBoard] = useState(getInitialBoard(difficulty)
-    // newArray
-  );
-  console.log('board', board);
+  // const [board, setBoard] = useState(
+  //   getInitialBoard(difficulty)
+  //   // newArray
+  // );
+  // useEffect(() => {
+  //   if (difficulty * difficulty !== board.length) {
+  //     setBoard(getInitialBoard(difficulty));
+  //   }
+  // }, [difficulty]);
 
-  useEffect(() => {
-    if (difficulty * difficulty !== board.length) {
-      setBoard(getInitialBoard(difficulty));
-  },}, [difficulty]);
+  // useEffect(() => {
+  //   const newBoard = board.flat();
+  //   const namesAmount = namesToFillTheBoard.length;
 
-  useEffect(() => {
-    const newBoard = board.flat();
-    const namesAmount = namesToFillTheBoard.length;
+  //   namesToFillTheBoard.forEach((name, index) => {
+  //     newBoard[index] = { ...newBoard[index], value: name };
+  //     newBoard[index + namesAmount] = {
+  //       ...newBoard[index + namesAmount],
+  //       value: name,
+  //     };
+  //   });
 
-    namesToFillTheBoard.forEach((name, index) => {
-      newBoard[index] = { ...newBoard[index], value: name };
-      newBoard[index + namesAmount] = {
-        ...newBoard[index + namesAmount],
-        value: name,
-      };
-    });
+  //   setBoard(newBoard);
+  // }, [difficulty]);
 
-    setBoard(newBoard);
-  }, [difficulty]);
-
-  const organiseArray = () => {
-    const shuffledArray = shuffleArray(board);
-    const newArr = new Array(difficulty).fill('');
-    return newArr.map((_, index) => {
-      const value = index * difficulty;
-      return shuffledArray.slice(value, value + difficulty);
-    });
-  };
+  // const organizeArray = () => {
+  //   const shuffledArray = shuffleArray(board);
+  //   const newArr = new Array(difficulty).fill('');
+  //   return newArr.map((_, index) => {
+  //     const value = index * difficulty;
+  //     return shuffledArray.slice(value, value + difficulty);
+  //   });
+  // };
 
   return (
     <>
       <Timer />
-      <Difficulty difficulty={difficulty} setDifficulty={setDifficulty} />
+      {/* <Difficulty difficulty={difficulty} setDifficulty={setDifficulty} />
       <div
         className="wrapper-for-memo"
         style={{ gridTemplateColumns: `repeat(${board.length}, 1fr)` }}
       >
-        <MemoBoard board={organiseArray()} />
-      </div>
+        <MemoBoard board={organizeArray()} />
+      </div> */}
     </>
   );
 };
