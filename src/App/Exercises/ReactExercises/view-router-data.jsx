@@ -2,7 +2,7 @@ import { SubRouteExercise1 } from './Exercise1/router-data';
 import { SubRouteExercise2 } from './Exercise2/router-data';
 import { SubRouteExercise3 } from './Exercise3/router-data';
 
-import { welcomeViewRouterMetaData } from './WelcomeView/router-data';
+import { welcomeViewkRouterMetaData } from './WelcomeView/router-data';
 
 import { getParsedRouterDataList } from '../../router-data/parseRouterData';
 
@@ -13,7 +13,7 @@ export const blockRouterMetaData = [
   SubRouteExercise2,
   SubRouteExercise3,
 
-  welcomeViewRouterMetaData,
+  welcomeViewkRouterMetaData,
 
   SubRouteExampleMetaData,
 ];
