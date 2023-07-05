@@ -1,2 +1,49 @@
-.dashboard {
+.dashboard-header {
+  color: rgb(0, 20, 92);
+}
+
+.dashboard-view {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 35px;
+}
+
+.dashboard-block {
+  box-sizing: border-box;
+  border: 1px solid #c8cbd1;
+  box-shadow: 0px 2px 26px 0px #bbbdc2;
+  border-radius: 5px;
+  width: 202px;
+  height: 192px;
+  display: inline-flex;
+  padding: 20px 28px;
+  flex-direction: column;
+  align-items: flex-start;
+
+  gap: 10px;
+}
+
+.dashboard-block:hover {
+  box-sizing: border-box;
+  border: 1px solid #fe3756;
+  box-shadow: 0px 2px 26px 0px rgba(254, 55, 86, 0.54);
+}
+
+.dashboard-icon {
+  fill: rgb(91, 127, 255);
+}
+
+.dashboard-block-content {
+  font-size: smaller;
+}
+
+.dashboard-link {
+  color: rgb(0, 20, 92);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.dashboard-link:hover {
+  color: #fe3756;
+  font-weight: 900;
 }

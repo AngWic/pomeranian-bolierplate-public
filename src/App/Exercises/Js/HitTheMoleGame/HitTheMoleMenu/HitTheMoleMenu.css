@@ -1,0 +1,6 @@
+.hit-the-mole-menu-label {
+  box-sizing: border-box;
+  position: fixed;
+  left: 10px;
+  display: flex;
+}
