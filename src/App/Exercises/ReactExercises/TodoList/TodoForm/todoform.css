@@ -1,0 +1,57 @@
+.todo-form {
+  margin: 6px;
+  color: gray;
+}
+
+.todo-form-back {
+  cursor: pointer;
+  color: black;
+  margin: 5px;
+}
+
+.form-message-box {
+  font-size: x-large;
+  color: green;
+}
+
+.todo-button-add {
+  background-color: #fe3756;
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 15px;
+  justify-content: center;
+  align-items: center;
+  padding: 12px;
+  gap: 16px;
+  width: 93px;
+  height: 46px;
+  border: 1px solid #fe3756;
+  border-radius: 5px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #8b1124;
+    border: 1px solid #8b1124;
+  }
+}
+
+.todo-form-popup {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.todo-form-popup-content {
+  background-color: #ffffff;
+  padding: 20px;
+  z-index: 10;
+  width: 200px;
+  display: block;
+}

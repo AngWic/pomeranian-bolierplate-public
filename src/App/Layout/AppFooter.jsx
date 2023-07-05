@@ -1,7 +1,7 @@
 import './styles/footer.css';
 
-const email = 'twoj-email@pomeranian.it';
-const phone = '+48-999-999-999';
+const email = 'angelika.wicka@pomeranianstartit.pl';
+const phone = '+48-695-021-070';
 
 export function AppFooter() {
   return (

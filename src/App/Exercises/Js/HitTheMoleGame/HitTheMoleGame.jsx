@@ -11,8 +11,6 @@ export function HitTheMoleGame() {
   const [isGameStarted, setGameStarted] = useState(false);
   const [gameScore, setGameScore] = useState(0);
 
-  console.log(isGameStarted);
-
   //ZAMIAST PONIŻSZEGO const molesLabelSuffix:
 
   // function molesTimeInstruction(object) {
