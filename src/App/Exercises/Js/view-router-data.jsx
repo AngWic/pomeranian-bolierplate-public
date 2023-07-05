@@ -3,6 +3,7 @@ import { getParsedRouterDataList } from '../../router-data/parseRouterData';
 import { blockRouterMetaData as blockRouterMetaDataJsVariables1 } from './Exercise-js-variables-1/router-data';
 import { blockRouterMetaData as blockRouterMetaDataJsVariables2 } from './Exercise-js-variables-2/router-data';
 import { blockRouterMetaData as blockRouterMetaDataJsFunction1 } from './Exercise-js-functions/router-data';
+import { booleanExercisesRouterMetaData as booleanExercisesRouterMetaData } from './Boolean/router-data';
 import { emptyValuesAndCommentsRouterMetaData } from './EmptyValuesAndComments/router-data';
 import { dateTimeRouterMetaData } from './DateTime/router-data';
 import { arrayRouterMetaData } from './Array/router-data';
@@ -21,6 +22,7 @@ export const blockRouterMetaData = [
   blockRouterMetaDataJsVariables1,
   blockRouterMetaDataJsVariables2,
   blockRouterMetaDataJsFunction1,
+  booleanExercisesRouterMetaData,
   emptyValuesAndCommentsRouterMetaData,
   dateTimeRouterMetaData,
   arrayRouterMetaData,
