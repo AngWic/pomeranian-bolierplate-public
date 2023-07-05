@@ -32,5 +32,7 @@ export const blockRouterMetaData = [
   useRefRouterMetaData,
   formsRouterMetaData,
   formValidationRouterMetaData,
+
+  SubRouteExampleMetaData,
 ];
 export const blockRouterData = getParsedRouterDataList(blockRouterMetaData);
