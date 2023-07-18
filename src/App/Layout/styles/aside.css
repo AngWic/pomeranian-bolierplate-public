@@ -20,7 +20,6 @@ aside li {
 
 .menu-icon {
   margin-right: 10px;
-  fill: rgb(91, 127, 255);
 }
 
 .aside-row {
@@ -28,7 +27,7 @@ aside li {
   flex-direction: row;
   align-items: center;
   text-decoration: none;
-  color: black;
+  color: var(--color-dark-blue);
 }
 
 aside li a {
@@ -37,6 +36,7 @@ aside li a {
 }
 
 aside a.active {
-  background-color: rgb(247, 75, 101);
-  color: var(--color-white);
+  background-color: #b3c3d3;
+  border-radius: 3px;
+  font-weight: 600;
 }
