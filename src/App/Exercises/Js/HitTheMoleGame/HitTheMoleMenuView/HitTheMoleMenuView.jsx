@@ -25,7 +25,6 @@ export const HitTheMoleMenuView = ({ setGameStarted }) => {
         <div className="hit-the-mole-label">Czas gry</div>
 
         <HitTheMoleSelector
-          className="hit-the-mole-container"
           optionsForMoles={[
             { value: 1, label: '1 minuta', isActive: true },
             { value: 2, label: '2 minuty', isActive: false },
@@ -38,7 +37,6 @@ export const HitTheMoleMenuView = ({ setGameStarted }) => {
         <div className="hit-the-mole-label">Liczba kretów</div>
 
         <HitTheMoleSelector
-          className="hit-the-mole-container"
           optionsForMoles={[
             { value: 1, label: '1 kret', isActive: false },
             { value: 2, label: '2 krety', isActive: true },
